@@ -71,7 +71,7 @@ describe('Redux', () => {
     input.simulate('change', { target: { value: 'Hello' } })
     form.simulate('submit',  { preventDefault() {} })
 
-    expect(store.getState().bands[0].name).to.equal("Hello")
+    expect(store.getState().bands[0].name).to.equal("Hello") //this is expecting store to be an array containing objects, like bands: {name: "Hello"}, and not an array, like bands: ["hello"]...
 
   });
 

@@ -1,21 +1,23 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+
 import BandInput from '../components/BandInput'
-import Band from '../components/Band'
 
 class BandsContainer extends Component {
 
-  renderBands = () =>
-  this.props.bands.map(
-    (band, id) =>
-    <Band
-      key={id}
-      text={band}
-    />
-  )
-
   render() {
     console.log('BandsContainer - this.props is: ', this.props)
+
+
+    let listOfBandNames = this.props.bands.map(eachBand => eachBand.name)
+    console.log('listofBandNames is: ', listOfBandNames)
+
+    const listOfBands = listOfBandNames.map( (band, index) =>
+      <li key={index}>
+        {band}
+      </li>
+    );
+
     return(
       <div style={{border: "1px solid blue"}}>
         <p>
@@ -28,7 +30,11 @@ class BandsContainer extends Component {
         <p>
           BandsContainer, here are the bands:
         </p>
-        {this.renderBands()}
+
+        <ul>
+          {listOfBands}
+        </ul>
+
       </div>
     );
   }

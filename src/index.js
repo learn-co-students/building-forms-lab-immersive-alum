@@ -6,7 +6,7 @@ import { Provider } from 'react-redux'
 import manageBand from './reducers/manageBand'
 
 const store = createStore(manageBand)
-
+console.warn('in index.js, store is: ', store)
 
 ReactDOM.render(
   <Provider store={store}>
